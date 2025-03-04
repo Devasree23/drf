@@ -33,9 +33,9 @@ Content-Type: application/json
 Authorization: Basic test:test  
 
 {
-    "name":"sambarsadham",
-    "calorie":450,
-    "mealtype":"lunch"
+    "name":"munch",
+    "calorie":10,
+    "mealtype":"breakfast"
 
 }
 

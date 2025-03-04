@@ -43,8 +43,6 @@ class MealUpdateRetrieveDestroyView(APIView):
     def get(self,request,*args,**kwargs):
         id=kwargs.get("pk")
         meal_instance=get_object_or_404(Meal,id=id)
-        
-       
         serializer_instance=MealSerializer(meal_instance)
         self.check_object_permissions(request,meal_instance)
         return Response(data=serializer_instance.data)
@@ -52,7 +50,6 @@ class MealUpdateRetrieveDestroyView(APIView):
     def delete(self,request,*args,**kwargs):
         id=kwargs.get("pk")
         meal_instance=get_object_or_404(Meal,id=id)
-        
         meal_instance.delete()
         self.check_object_permissions(request,meal_instance)
         return Response(data={"message":"deleted"})
@@ -60,8 +57,6 @@ class MealUpdateRetrieveDestroyView(APIView):
     def put(self, request, *args, **kwargs):
         id = kwargs.get("pk")
         meal_instance = get_object_or_404(Meal, id=id)
-
-       
         serializer_instance = MealSerializer(instance=meal_instance, data=request.data)
 
         if serializer_instance.is_valid():
@@ -75,7 +70,7 @@ class CalorieView(APIView):
     authentication_classes=[authentication.BasicAuthentication]
     permission_classes=[permissions.IsAuthenticated]
     def get(self,request,*args,**kwargs):  
-        calorie_total=Meal.objects.filter(owner=request.user).values("calorie").aggregate(total=Sum("calorie"))
+        calorie_total=Meal.object.filter(owner=request.user).values("calories").aggregate(total=Sum("calorie"))
         return Response(data=calorie_total)
 
 
