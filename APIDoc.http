@@ -1,0 +1,71 @@
+#api for creating user account
+
+#api for adding new meal
+
+#api for listing all meal
+
+#api for updating meal
+
+#Api for deleting api
+
+#Api for meal summary
+
+###
+POST http://127.0.0.1:8000/wellness/signup/
+Content-Type: application/json
+
+{
+    "username":"test",
+    "email":"test@gmail.com",
+    "password":"test"
+}
+
+#api call for listing all meals
+###
+GET http://127.0.0.1:8000/wellness/meal/
+Authorization: Basic test:test
+
+
+#api call for adding new meal
+###
+POST http://127.0.0.1:8000/wellness/meal/
+Content-Type: application/json
+Authorization: Basic test:test  
+
+{
+    "name":"sambarsadham",
+    "calorie":450,
+    "mealtype":"lunch"
+
+}
+
+
+#api call for fetch the meal of an user
+###
+GET http://127.0.0.1:8000/wellness/meal/1/
+Authorization:  Basic test:test
+
+#api call for delete the meal
+###
+DELETE  http://127.0.0.1:8000/wellness/meal/5/
+Authorization: Basic test:test
+
+#api call for update the data
+###
+PUT http://127.0.0.1:8000/wellness/meal/3/
+Authorization: Basic test:test 
+Content-Type: application/json
+
+{
+    "id": 3,
+    "name": "Chappathi with Vegetable Kurma",
+    "calorie": 450,
+    "mealtype": "dinner",
+    "created_at": "2025-03-04",
+    "owner": 1
+  }
+
+#api call for get calorie_total
+###
+GET http://127.0.0.1:8000/wellness/meal/11/calorietotal/
+Authorization: Basic test:test
